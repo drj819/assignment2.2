@@ -1,0 +1,66 @@
+Assignment 2.1
+
+getwd()
+p='C:/Users/Admin/Downloads/acad/JSON'
+setwd(p)
+list.files()
+
+list.dirs()
+library(data.table)
+data=read.table("text1.csv", header=T, sep=',')
+data=read.table("text2.csv", header=T, sep=',')
+data=read.table("text3.csv", header=T, sep=',')
+View(data)
+
+read.csv("text1.csv",header=T,sep=",")
+read.csv("text2.csv",header=T,sep=",")
+
+read.csv("text3.csv",header=T,sep=",")
+
+
+
+Assignment 2.2
+
+library(rjson)
+data.frame(t(unlist(fromJSON(js))))
+title opening_weekend_take year release_date_wide gross
+3 (2011)                 1234 2011        2011-09-16 59954
+
+require(RJSONIO)
+js<-'[{"name": null, "release_date_local": null, "title": "3 (2011)",
+"opening_weekend_take": 1234, "year": 2011,
+"release_date_wide": "2011-09-16", "gross": 59954}]'
+
+js <- fromJSON(js)
+
+js <- lapply(js, function(x) {
+  x[sapply(x, is.null)] <- NA
+  unlist(x)
+})
+DataFrame <- do.call("rbind", lapply(js, as.data.frame))
+
+Assignment 2.3
+
+summary(mtcars)
+mtcars[1:10,]
+class(mtcars)
+head(mtcars)
+sample(mtcars)
+DfA=mtcars[,C(1,2,3,4,5)]
+DfB=mtcars[,C(10,20,30,40)]
+merge(DfA,DfB, by='brands')
+data=read.table("mtcars")
+cut
+mpg<-mtcars$mpg
+mpg
+cut(mpg,5)
+cut(mpg,6)
+cut(mpg,5,labels=c("First","Second","Third","Fourth","Fifth"))
+mtcars$bins<- cut mpg,5,labels=c("First","Second","Third","Fourth","Fifth"))
+mtcars
+mtcars$bins<-cut (mpg,5)
+mtcars
+
+
+
+
